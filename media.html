@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mystic Nights Archive</title>
+
+  <!-- Self-hosted fonts -->
+  <style>
+    @font-face {
+      font-family: 'Megrim';
+      src: url('fonts/Megrim-Regular.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: block;
+    }
+
+    @font-face {
+      font-family: 'Spectral';
+      src: url('fonts/Spectral-Light.ttf') format('truetype');
+      font-weight: 300;
+      font-style: normal;
+      font-display: block;
+    }
+
+    @font-face {
+      font-family: 'Spectral';
+      src: url('fonts/Spectral-Regular.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: block;
+    }
+
+    @font-face {
+      font-family: 'Spectral';
+      src: url('fonts/Spectral-SemiBold.ttf') format('truetype');
+      font-weight: 600;
+      font-style: normal;
+      font-display: block;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Spectral', serif;
+      font-size: 20px;
+      line-height: 1.6;
+      background-color: #0c0c0c;
+      color: #e0e0e0;
+      background-image: url('https://raw.githubusercontent.com/jeremydecola/Mystic-Nights-Translation/refs/heads/master/GRAPHICS/COVERART.png');
+      background-size: cover;
+      background-attachment: scroll;
+    }
+
+    header {
+      background-color: rgba(0, 0, 0, 0.95);
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid #990000;
+      box-shadow: 0 0 10px #660000;
+    }
+
+    nav {
+      text-align: center;
+    }
+
+    nav a {
+      font-family: 'Megrim', cursive;
+      margin: 0 1rem;
+      color: #cc6666;
+      text-decoration: none;
+      font-size: 2.4rem;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #ff3333;
+      text-shadow: 0 0 5px red;
+    }
+
+    .container {
+      background-color: rgba(0, 0, 0, 0.85);
+      max-width: 800px;
+      margin: 3rem auto;
+      padding: 2rem;
+      border: 1px solid #660000;
+      box-shadow: 0 0 20px #990000;
+    }
+
+    h1 {
+      font-family: 'Megrim', cursive;
+      color: #cc0000;
+      text-align: center;
+      font-size: 4rem;
+      margin-top: 2rem;
+      text-shadow: 0 0 10px #550000;
+    }
+
+    h2 {
+      font-family: 'Megrim', cursive;
+      color: #cc0000;
+      text-align: center;
+      font-size: 2rem;
+      margin-top: 2.5rem;
+    }
+
+    a {
+      color: #cc6666;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: #ff3333;
+      text-shadow: 0 0 5px red;
+    }
+
+    img {
+      max-width: 100%;
+      border: 2px solid #660000;
+      margin-bottom: 1rem;
+    }
+
+    video, iframe {
+      width: 100%;
+      margin-top: 1rem;
+      border: 2px solid #660000;
+    }
+
+    .section {
+      margin-bottom: 2rem;
+    }
+
+    .centered-image {
+      display: block;
+      margin: 1rem auto;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="media.html">Media</a>
+      <a href="lore.html">Lore</a>
+      <a href="https://github.com/jeremydecola/Mystic-Nights-Translation" target="_blank">Translation</a>
+      <a href="https://github.com/jeremydecola/Mystic-Nights-Online" target="_blank">Multiplayer</a>
+      <a href="mailto:jeremydecola@gmail.com?subject=Mystic%20Nights%20Archive%20Inquiry">Contact Me</a>
+
+    </nav>
+  </header>
+
+  <div class="container">
+    <h1>Media Gallery</h1>
+
+    <div class="section">
+      <h2>Screenshots</h2>
+      <img src="https://github.com/jeremydecola/Mystic-Nights-Translation/blob/master/GRAPHICS/jane1.jpg?raw=true" alt="In-game lobby screenshot">
+    </div>
+
+    <div class="section">
+      <h2>Promotional Material</h2>
+      <img src="assets/images/pp00.jpg" alt="Promo Poster 2" class="centered-image">
+      <img src="assets/images/pp02.jpg" alt="Promo Poster 3" class="centered-image">
+    </div>
+
+    <div class="section">
+      <h2>Multiplayer (Alpha Build) Promotional Video</h2>
+      <video controls poster="assets/images/thumbnail.jpg">
+        <source src="assets/videos/network_trailer.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <div class="section">
+      <h2>Archived Official Website</h2>
+      <p>Visit the official Korean promotional site as it appeared in 2005 via the Wayback Machine:</p>
+      <p><a href="https://web.archive.org/web/20051102032719/http://mysticnights.playstation.co.kr/" target="_blank">mysticnights.playstation.co.kr (2005)</a></p>
+    </div>
+
+    <p style="font-size: 0.8rem; margin-top: 3rem; text-align: center;">
+      <em>This is a non-commercial fan archive created for historical preservation under Canadian fair dealing law.<br>
+      All media is credited to the original developers (N-Log Soft) and Sony Computer Entertainment Korea Inc. (SCEK).</em>
+    </p>
+  </div>
+</body>
+</html>
