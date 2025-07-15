@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mystic Nights Archive</title>
+
+  <!-- Self-hosted fonts -->
+  <style>
+    @font-face {
+      font-family: 'Megrim';
+      src: url('fonts/Megrim-Regular.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: block;
+    }
+
+    @font-face {
+      font-family: 'Spectral';
+      src: url('fonts/Spectral-Light.ttf') format('truetype');
+      font-weight: 300;
+      font-style: normal;
+      font-display: block;
+    }
+
+    @font-face {
+      font-family: 'Spectral';
+      src: url('fonts/Spectral-Regular.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: block;
+    }
+
+    @font-face {
+      font-family: 'Spectral';
+      src: url('fonts/Spectral-SemiBold.ttf') format('truetype');
+      font-weight: 600;
+      font-style: normal;
+      font-display: block;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Spectral', serif;
+      font-size: 20px;
+      line-height: 1.6;
+      background-color: #0c0c0c;
+      color: #e0e0e0;
+      background-image: url('assets/images/coverart.png');
+      background-size: auto;
+      background-attachment: scroll;
+      background-position: center top;
+      background-repeat: repeat-y;
+      background-size: 100%;
+    }
+
+    header {
+      background-color: rgba(0, 0, 0, 0.95);
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid #990000;
+      box-shadow: 0 0 10px #660000;
+    }
+
+    nav {
+      text-align: center;
+    }
+
+    nav a {
+      font-family: 'Megrim', cursive;
+      margin: 0 1rem;
+      color: #cc6666;
+      text-decoration: none;
+      font-size: 2.4rem;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #ff3333;
+      text-shadow: 0 0 5px red;
+    }
+
+    .container {
+      background-color: rgba(0, 0, 0, 0.85);
+      max-width: 800px;
+      margin: 3rem auto;
+      padding: 2rem;
+      border: 1px solid #660000;
+      box-shadow: 0 0 20px #990000;
+    }
+
+    h1 {
+      font-family: 'Megrim', cursive;
+      color: #cc0000;
+      text-align: center;
+      font-size: 4rem;
+      margin-top: 2rem;
+      text-shadow: 0 0 10px #550000;
+    }
+
+    h2 {
+      font-family: 'Megrim', cursive;
+      color: #cc0000;
+      text-align: center;
+      font-size: 2rem;
+      margin-top: 2.5rem;
+    }
+
+    a {
+      color: #cc6666;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: #ff3333;
+      text-shadow: 0 0 5px red;
+    }
+
+    img {
+      max-width: 100%;
+      border: 2px solid #660000;
+      margin-bottom: 1rem;
+    }
+
+    video, iframe {
+      width: 100%;
+      margin-top: 1rem;
+      border: 2px solid #660000;
+    }
+
+    .section {
+      margin-bottom: 2rem;
+    }
+
+    .centered-image {
+      display: block;
+      margin: 1rem auto;
+    }
+
+    .magazine-link {
+      display: block;
+      width: fit-content;
+      margin: 0 auto;
+      position: relative;
+    }
+    
+    .magazine-link .mag-hover-badge {
+      font-family: 'Megrim', cursive;
+      position: absolute;
+      left: 50%;
+      top: 97%;
+      transform: translate(-50%, -50%) scale(0.95);
+      background: rgba(20,0,0,0.87);
+      color: #ff3333;
+      border: 1.5px solid #cc0000;
+      padding: 0.28em 1em 0.22em 1em;
+      border-radius: 8px;
+      box-shadow: 0 0 16px #660000b3;
+      font-size: 1.22rem;
+      letter-spacing: 2px;
+      text-shadow: 0 0 7px #a10000, 0 0 2px #fff8;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.22s cubic-bezier(0.52, 0.11, 0.72, 0.82), transform 0.22s cubic-bezier(0.52, 0.11, 0.72, 0.82);
+      z-index: 5;
+    }
+    
+    .magazine-link:hover .mag-hover-badge,
+    .magazine-link:focus .mag-hover-badge {
+      opacity: 1;
+      transform: translate(-50%, -90%) scale(1.09) rotate(-2deg);
+    }
+    
+    .magazine-link:hover .magazine-scan,
+    .magazine-link:focus .magazine-scan {
+      border-color: #ff3333;
+      box-shadow: 0 0 48px #e6000030, 0 0 12px #fff3;
+      transform: scale(1.06) rotate(-2deg);
+    }
+    
+    .magazine-scan {
+      max-width: 400px;
+      width: 100%;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      border: 2.5px solid #990000;
+      box-shadow: 0 0 22px #39070777, 0 0 2px #fff2;
+      border-radius: 12px;
+      position: relative;
+      transition: 
+        box-shadow 0.3s cubic-bezier(0.44,1.19,0.7,1.02),
+        border-color 0.28s cubic-bezier(0.44,1.19,0.7,1.02),
+        transform 0.23s cubic-bezier(0.44,1.19,0.7,1.02);
+      cursor: pointer;
+      z-index: 2;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="media.html">Media</a>
+      <a href="about.html">About</a>
+      <a href="https://github.com/jeremydecola/Mystic-Nights-Translation" target="_blank">Translation</a>
+      <a href="https://github.com/jeremydecola/Mystic-Nights-Online" target="_blank">Multiplayer</a>
+      <a href="mailto:jeremydecola@gmail.com?subject=Mystic%20Nights%20Archive%20Inquiry">Contact Me</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h1>More about the game</h1>
+
+    <div class="section">
+      <h2>Internal Investors Pitch</h2>
+      <a href="assets/N-LogSoftPortfolio.pdf" target="_blank" class="magazine-link" title="View full internal pitch PDF">
+        <img src="assets/images/internal_pitch.png" alt="Internal Investors Pitch" class="centered-image magazine-scan">
+        <span class="mag-hover-badge">VIEW PDF</span>
+      </a>
+    </div>
+
+    <div class="section">
+      <h2>How I discovered Mystic Nights</h2>
+      <p>Check out this very insightful blog post from 2018 detailing the writer's quest to track down an elusive physical copy of Mystic Nights in the now defunct Yongsan Market in Seoul :</p>
+      <p><a href="https://horror.dreamdawn.com/?p=14800178" target="_blank">Chris' Survival Horror Quest</a></p>
+    </div>
+
+    <p style="font-size: 0.8rem; margin-top: 3rem; text-align: center;">
+      <em>This is a non-commercial fan archive created for historical preservation under Canadian fair dealing law.<br>
+      All media is credited to the original developers (N-Log Soft) and Sony Computer Entertainment Korea Inc. (SCEK).</em>
+    </p>
+  </div>
+</body>
+</html>

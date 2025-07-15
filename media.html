@@ -46,9 +46,12 @@
       line-height: 1.6;
       background-color: #0c0c0c;
       color: #e0e0e0;
-      background-image: url('https://raw.githubusercontent.com/jeremydecola/Mystic-Nights-Translation/refs/heads/master/GRAPHICS/COVERART.png');
-      background-size: cover;
+      background-image: url('assets/images/coverart.png');
+      background-size: auto;
       background-attachment: scroll;
+      background-position: center top;
+      background-repeat: repeat-y;
+      background-size: 100%;
     }
 
     header {
@@ -136,6 +139,288 @@
       display: block;
       margin: 1rem auto;
     }
+
+    .magazine-scan {
+      max-width: 400px;
+      width: 100%;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      border: 2.5px solid #990000;
+      box-shadow: 0 0 22px #39070777, 0 0 2px #fff2;
+      border-radius: 12px;
+      position: relative;
+      transition: 
+        box-shadow 0.3s cubic-bezier(0.44,1.19,0.7,1.02),
+        border-color 0.28s cubic-bezier(0.44,1.19,0.7,1.02),
+        transform 0.23s cubic-bezier(0.44,1.19,0.7,1.02);
+      cursor: pointer;
+      z-index: 2;
+    }
+
+    .magazine-link {
+      display: block;
+      width: fit-content;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .magazine-link .mag-hover-badge {
+      font-family: 'Megrim', cursive;
+      position: absolute;
+      left: 50%;
+      top: 97%;
+      transform: translate(-50%, -50%) scale(0.95);
+      background: rgba(20,0,0,0.87);
+      color: #ff3333;
+      border: 1.5px solid #cc0000;
+      padding: 0.28em 1em 0.22em 1em;
+      border-radius: 8px;
+      box-shadow: 0 0 16px #660000b3;
+      font-size: 1.22rem;
+      letter-spacing: 2px;
+      text-shadow: 0 0 7px #a10000, 0 0 2px #fff8;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.22s cubic-bezier(0.52, 0.11, 0.72, 0.82), transform 0.22s cubic-bezier(0.52, 0.11, 0.72, 0.82);
+      z-index: 5;
+    }
+
+    .magazine-link:hover .mag-hover-badge,
+    .magazine-link:focus .mag-hover-badge {
+      opacity: 1;
+      transform: translate(-50%, -90%) scale(1.09) rotate(-2deg);
+    }
+
+    .magazine-link:hover .magazine-scan,
+    .magazine-link:focus .magazine-scan {
+      border-color: #ff3333;
+      box-shadow: 0 0 48px #e6000030, 0 0 12px #fff3;
+      transform: scale(1.06) rotate(-2deg);
+    }
+
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 100%;
+      margin-top: 1rem;
+    }
+
+    .video-wrapper video {
+      display: block;
+      width: 100%;
+      border: 2px solid #660000;
+      border-radius: 12px;
+      box-shadow: 0 0 14px #99000055;
+      background: #000;
+    }
+
+    .custom-play-overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: auto;
+      cursor: pointer;
+      background: linear-gradient(120deg, rgba(20,0,0,0.15) 60%, rgba(80,0,20,0.17) 100%);
+      border-radius: 12px;
+      transition: background 0.23s, box-shadow 0.22s;
+      z-index: 2;
+    }
+
+    .custom-play-overlay:hover {
+      background: linear-gradient(120deg, rgba(60,0,0,0.28) 60%, rgba(190,0,50,0.19) 100%);
+      box-shadow: 0 0 36px #e60000cc, 0 0 10px #ffaaaa99;
+    }
+
+    .play-icon {
+      font-family: 'Megrim', cursive;
+      font-size: 5rem;
+      color: #ff3333;
+      text-shadow: 0 0 28px #d30000cc, 0 0 12px #fff, 0 0 2px #fff;
+      filter: drop-shadow(0 0 6px #d4000070);
+      opacity: 0.88;
+      transition: color 0.2s, text-shadow 0.22s, transform 0.2s;
+    }
+
+    .custom-play-overlay:hover .play-icon {
+      color: #fff;
+      text-shadow: 0 0 48px #ff2222cc, 0 0 8px #fff7, 0 0 2px #fff;
+      transform: scale(1.12) rotate(-2deg);
+    }
+
+    .video-wrapper .custom-play-overlay[hidden] {
+      display: none !important;
+    }
+
+    .screenshot-carousel-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 700px;
+      margin: 2rem auto 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: visible;
+    }
+
+    .screenshot-carousel {
+      display: flex;
+      gap: 1.3rem;
+      overflow-x: auto;
+      overflow-y: visible;
+      scroll-behavior: smooth;
+      scrollbar-width: thin;
+      scrollbar-color: #ff3333 #250000;
+      background: rgba(15,0,0,0.22);
+      border-radius: 14px;
+      padding: 1.1rem 0.2rem 1.3rem 0.2rem;
+      box-shadow: 0 0 24px #990000cc, 0 0 2px #fff3;
+      border: 1.5px solid #660000;
+      min-height: 200px;
+      max-width: 640px;
+      z-index: 2;
+    }
+
+    .carousel-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 56px;
+      height: 70px;
+      background: rgba(24,0,0,0.89);
+      border: 2.5px solid #990000;
+      border-radius: 20px;
+      box-shadow: 0 0 30px #a2000095, 0 0 10px #ff222244;
+      cursor: pointer;
+      z-index: 4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s, background 0.23s, border-color 0.18s, box-shadow 0.21s, filter 0.15s;
+      user-select: none;
+      outline: none;
+    }
+
+    .carousel-arrow.left { left: -38px; }
+    .carousel-arrow.right { right: -38px; }
+
+    /* SHOW ARROWS when hovering or focus within or dragging */
+    .screenshot-carousel-wrapper:hover .carousel-arrow,
+    .screenshot-carousel-wrapper:focus-within .carousel-arrow,
+    .screenshot-carousel-wrapper.dragging .carousel-arrow {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .carousel-arrow-icon {
+      font-family: 'Megrim', cursive;
+      color: #ff3333;
+      font-size: 3.3rem;
+      line-height: 1;
+      filter: drop-shadow(0 0 16px #ff4444cc);
+      text-shadow: 0 0 15px #ff2222, 0 0 2px #fff;
+      transition: color 0.16s, text-shadow 0.18s, filter 0.13s;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .carousel-arrow:hover {
+      background: #250000;
+      border-color: #ff3333;
+      box-shadow: 0 0 54px #ff3333cc, 0 0 18px #fff8;
+      filter: brightness(1.08);
+    }
+    .carousel-arrow:hover .carousel-arrow-icon {
+      color: #fff;
+      text-shadow: 0 0 36px #ff1111, 0 0 4px #fff9;
+      filter: drop-shadow(0 0 24px #ff3333cc);
+    }
+
+    @media (max-width: 700px) {
+      .carousel-arrow {
+        width: 36px;
+        height: 44px;
+        left: -14px;
+        right: -14px;
+      }
+      .carousel-arrow-icon { font-size: 2rem; }
+    }
+
+    .screenshot-carousel img {
+      height: 220px;
+      border-radius: 10px;
+      border: 2.2px solid #990000;
+      box-shadow: 0 0 18px #ff333355, 0 0 4px #110000;
+      background: #111;
+      transition: 
+        filter 0.16s,
+        border-color 0.16s,
+        box-shadow 0.18s;
+      cursor: zoom-in;
+      z-index: 1;
+      position: relative;
+    }
+
+    .screenshot-carousel img:hover,
+    .screenshot-carousel img:focus {
+      filter: brightness(1.14) saturate(1.05) drop-shadow(0 0 48px #a900009a);
+      border-color: #ff3333;
+      box-shadow: 0 0 44px #ff222299, 0 0 10px #fff9;
+    }
+
+    /* Screenshot Modal for Zoomed image */
+    .screenshot-modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0; top: 0; width: 100vw; height: 100vh;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .screenshot-modal.active {
+      display: flex;
+    }
+
+    .screenshot-modal-bg {
+      position: absolute;
+      left: 0; top: 0; width: 100vw; height: 100vh;
+      background: radial-gradient(circle at 60% 30%, #340000b7 0%, #0c0c0ceb 65%);
+      backdrop-filter: blur(3px) brightness(0.92);
+      z-index: 1;
+      transition: background 0.2s;
+    }
+
+    .screenshot-modal img {
+      position: relative;
+      max-width: 92vw;
+      max-height: 88vh;
+      box-shadow:
+        0 0 100px #ff2222bb,
+        0 0 30px #a1000060,
+        0 0 9px #fff;
+      border-radius: 14px;
+      border: 3px solid #ff3333;
+      z-index: 2;
+      animation: modal-zoom 0.24s cubic-bezier(0.5,1.8,0.4,1.0);
+    }
+
+    @keyframes modal-zoom {
+      0% { transform: scale(0.8) rotate(-2deg); opacity: 0; }
+      100% { transform: scale(1) rotate(0); opacity: 1; }
+    }
+
+    .screenshot-modal { cursor: zoom-out; }
+
+    @media (max-width: 700px) {
+      .screenshot-modal img { max-width: 98vw; max-height: 90vh;}
+      .screenshot-carousel img:hover { filter: none; }
+    }
+
   </style>
 </head>
 <body>
@@ -143,7 +428,7 @@
     <nav>
       <a href="index.html">Home</a>
       <a href="media.html">Media</a>
-      <a href="lore.html">Lore</a>
+      <a href="about.html">About</a>
       <a href="https://github.com/jeremydecola/Mystic-Nights-Translation" target="_blank">Translation</a>
       <a href="https://github.com/jeremydecola/Mystic-Nights-Online" target="_blank">Multiplayer</a>
       <a href="mailto:jeremydecola@gmail.com?subject=Mystic%20Nights%20Archive%20Inquiry">Contact Me</a>
@@ -155,28 +440,80 @@
     <h1>Media Gallery</h1>
 
     <div class="section">
+      <h2>Archived Official Website</h2>
+      <a href="https://web.archive.org/web/20051102032719/http://mysticnights.playstation.co.kr/" 
+         class="magazine-link" target="_blank" rel="noopener">
+        <img src="assets/images/website_capture.png" alt="Archived Official Website" class="centered-image magazine-scan">
+        <span class="mag-hover-badge">🔗 VIEW 2005 WEBSITE</span>
+      </a>
+      <p style="margin-top: 1.1em; text-align: center; font-size: 1.03rem; color: #aaa;">
+        (opens in a new tab via the Wayback Machine)
+      </p>
+    </div>
+
+    <div class="section">
       <h2>Screenshots</h2>
-      <img src="https://github.com/jeremydecola/Mystic-Nights-Translation/blob/master/GRAPHICS/jane1.jpg?raw=true" alt="In-game lobby screenshot">
+      <div class="screenshot-carousel-wrapper">
+        <button class="carousel-arrow left" aria-label="Scroll left">
+          <span class="carousel-arrow-icon">&#x276E;</span>
+        </button>
+        <div class="screenshot-carousel" id="screenshot-carousel">
+          <img src="assets/images/scr00.jpg" alt="Screenshot 1" class="carousel-img">
+          <img src="assets/images/scr01.jpg" alt="Screenshot 2" class="carousel-img">
+          <img src="assets/images/scr02.jpg" alt="Screenshot 3" class="carousel-img">
+          <img src="assets/images/scr03.jpg" alt="Screenshot 4" class="carousel-img">
+        </div>
+        <button class="carousel-arrow right" aria-label="Scroll right">
+          <span class="carousel-arrow-icon">&#x276F;</span>
+        </button>
+        <div class="carousel-fade left-fade"></div>
+        <div class="carousel-fade right-fade"></div>
+      </div>
+      <div class="carousel-scrollbar"></div>
+    </div>
+    
+    <!-- Modal for screenshot zoom -->
+    <div id="screenshot-modal" class="screenshot-modal">
+      <div class="screenshot-modal-bg"></div>
+      <img id="modal-img" src="" alt="Zoomed Screenshot" />
+    </div>
+
+    <div class="section">
+      <h2>Mystic Nights Game Scans & Variant Info</h2>
+      <a href="game_scans.html" class="magazine-link">
+        <img src="assets/images/mn_scan/mn_scan0.jpg" alt="Mystic Nights Game Scan Gallery" class="centered-image magazine-scan">
+        <span class="mag-hover-badge">🔍 VIEW SCANS</span>
+      </a>
+    </div>
+
+    <div class ="section">
+      <h2>Multiplayer (Alpha Build) Promotional Video</h2>
+    </div>
+
+    <div class="video-wrapper">
+      <video id="trailer-video" controls poster="assets/images/network_trailer_thumbnail.jpg">
+        <source src="assets/videos/network_trailer.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <div class="custom-play-overlay" id="trailer-overlay">
+        <span class="play-icon">▶</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Playstation Monthly Vol. 42 - November 2005</h2>
+      <p>Here is a rough scan of the contents relevant to Mystic Nights found in volume 42 of Playstation Monthly magazine. There is a Review, a Walkthrough and a promotional ad. </p>
+      <a href="psm42.html" class="magazine-link">
+        <img src="assets/images/monthlyps_vol42.jpg" alt="Playstation Monthly vol42" class="centered-image magazine-scan">
+        <span class="mag-hover-badge">🔍 VIEW SCANS</span>
+      </a>
     </div>
 
     <div class="section">
       <h2>Promotional Material</h2>
-      <img src="assets/images/pp00.jpg" alt="Promo Poster 2" class="centered-image">
+      <img src="assets/images/pp00.jpg" alt="Promo Poster 1" class="centered-image">
+      <img src="assets/images/pp01.jpg" alt="Promo Poster 2" class="centered-image">
       <img src="assets/images/pp02.jpg" alt="Promo Poster 3" class="centered-image">
-    </div>
-
-    <div class="section">
-      <h2>Multiplayer (Alpha Build) Promotional Video</h2>
-      <video controls poster="assets/images/thumbnail.jpg">
-        <source src="assets/videos/network_trailer.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-        </video>
-    </div>
-
-    <div class="section">
-      <h2>Archived Official Website</h2>
-      <p>Visit the official Korean promotional site as it appeared in 2005 via the Wayback Machine:</p>
-      <p><a href="https://web.archive.org/web/20051102032719/http://mysticnights.playstation.co.kr/" target="_blank">mysticnights.playstation.co.kr (2005)</a></p>
     </div>
 
     <p style="font-size: 0.8rem; margin-top: 3rem; text-align: center;">
@@ -184,5 +521,80 @@
       All media is credited to the original developers (N-Log Soft) and Sony Computer Entertainment Korea Inc. (SCEK).</em>
     </p>
   </div>
+  <script>
+    // Carousel scrolling logic
+    const carousel = document.getElementById('screenshot-carousel');
+    const wrapper = document.querySelector('.screenshot-carousel-wrapper'); // <-- ADD THIS LINE
+    const leftBtn = document.querySelector('.carousel-arrow.left');
+    const rightBtn = document.querySelector('.carousel-arrow.right');
+    function scrollCarouselBy(amount) {
+      carousel.scrollBy({left: amount, behavior: 'smooth'});
+    }
+    leftBtn.addEventListener('click', () => scrollCarouselBy(-260));
+    rightBtn.addEventListener('click', () => scrollCarouselBy(260));
+  
+    // ---- DRAG-TO-SCROLL WITH .dragging CLASS ON WRAPPER ----
+    let isDown = false, startX, scrollLeft;
+    carousel.addEventListener('mousedown', (e) => {
+      isDown = true;
+      carousel.classList.add('dragging');
+      wrapper.classList.add('dragging');
+      startX = e.pageX - carousel.offsetLeft;
+      scrollLeft = carousel.scrollLeft;
+    });
+    document.addEventListener('mouseup', () => {
+      isDown = false;
+      carousel.classList.remove('dragging');
+      wrapper.classList.remove('dragging');
+    });
+    carousel.addEventListener('mouseleave', () => {
+      isDown = false;
+      carousel.classList.remove('dragging');
+      wrapper.classList.remove('dragging');
+    });
+    carousel.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - carousel.offsetLeft;
+      const walk = (x - startX) * 1.1;
+      carousel.scrollLeft = scrollLeft - walk;
+    });
+
+    carousel.addEventListener('touchmove', () => {});
+
+    // Modal zoom
+    const modal = document.getElementById('screenshot-modal');
+    const modalImg = document.getElementById('modal-img');
+    document.querySelectorAll('.carousel-img').forEach(img => {
+      img.addEventListener('click', () => {
+        modalImg.src = img.src;
+        modal.classList.add('active');
+      });
+    });
+    modal.addEventListener('click', () => {
+      modal.classList.remove('active');
+      modalImg.src = '';
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === "Escape") modal.classList.remove('active');
+    });
+  </script>
+  <script>
+    const video = document.getElementById('trailer-video');
+    const overlay = document.getElementById('trailer-overlay');
+    if (video && overlay) {
+      // Hide overlay if video is played
+      video.addEventListener('play', () => overlay.hidden = true);
+      // Show overlay again if video is paused and at the beginning
+      video.addEventListener('pause', () => {
+        if (video.currentTime < 0.25) overlay.hidden = false;
+      });
+      // Clicking the overlay starts the video
+      overlay.addEventListener('click', () => {
+        video.play();
+        overlay.hidden = true;
+      });
+    }
+  </script>
 </body>
 </html>

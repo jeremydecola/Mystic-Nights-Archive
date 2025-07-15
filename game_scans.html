@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Playstation Monthly Vol. 42 - Mystic Nights Feature</title>
+
+  <!-- Self-hosted fonts (same as main site) -->
+  <style>
+    @font-face {
+      font-family: 'Megrim';
+      src: url('fonts/Megrim-Regular.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: block;
+    }
+    @font-face {
+      font-family: 'Spectral';
+      src: url('fonts/Spectral-Light.ttf') format('truetype');
+      font-weight: 300;
+      font-style: normal;
+      font-display: block;
+    }
+    @font-face {
+      font-family: 'Spectral';
+      src: url('fonts/Spectral-Regular.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: block;
+    }
+    @font-face {
+      font-family: 'Spectral';
+      src: url('fonts/Spectral-SemiBold.ttf') format('truetype');
+      font-weight: 600;
+      font-style: normal;
+      font-display: block;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Spectral', serif;
+      font-size: 20px;
+      line-height: 1.6;
+      background-color: #0c0c0c;
+      color: #e0e0e0;
+      background-image: url('assets/images/coverart.png');
+      background-size: auto;
+      background-attachment: scroll;
+      background-position: center top;
+      background-repeat: repeat-y;
+      background-size: 100%;
+    }
+
+    .container {
+      background-color: rgba(0, 0, 0, 0.85);
+      max-width: 900px;
+      margin: 3rem auto;
+      padding: 2rem 2rem 1rem 2rem;
+      border: 1px solid #660000;
+      box-shadow: 0 0 20px #990000;
+      border-radius: 18px;
+    }
+
+    h1 {
+      font-family: 'Megrim', cursive;
+      color: #cc0000;
+      text-align: center;
+      font-size: 3.2rem;
+      margin-top: 2rem;
+      text-shadow: 0 0 10px #550000;
+    }
+
+    h2 {
+      font-family: 'Megrim', cursive;
+      color: #cc0000;
+      text-align: center;
+      font-size: 2rem;
+      margin-top: 1rem;
+    }
+
+    .back-link {
+      display: block;
+      text-align: center;
+      margin-bottom: 1.5rem;
+      font-size: 2.05rem;
+      color: #cc6666;
+      text-decoration: underline;
+      font-family: 'Megrim', cursive;
+      letter-spacing: 1px;
+      transition: all 0.2s;
+    }
+    .back-link:hover {
+      color: #ff3333;
+      text-shadow: 0 0 5px red;
+    }
+
+    .magazine-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2.5rem 2.5rem;
+      margin-top: 2.5rem;
+    }
+    .magazine-page {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      max-width: 700px;
+      margin: 0 auto 2.5rem auto;
+      background: rgba(24,0,0,0.07);
+      border-radius: 16px;
+      padding: 1.3rem 0.5rem 0.6rem 0.5rem;
+      box-shadow: 0 0 14px #66000090;
+    }
+    .magazine-page img {
+      width: 100%;
+      max-width: 680px;
+      border: 2px solid #990000;
+      box-shadow: 0 0 16px #330000cc;
+      margin-bottom: 0.5rem;
+      border-radius: 10px;
+      background: #181010;
+      transition: transform 0.2s cubic-bezier(0.44, 1.19, 0.7, 1.02);
+    }
+    .magazine-page img:hover {
+      transform: scale(1.045) rotate(-1deg);
+      box-shadow: 0 0 36px #e10000bb;
+      border-color: #ff2222;
+    }
+    .label {
+      display: block;
+      font-size: 2.05rem;
+      color: #ffb3b3;
+      font-family: 'Spectral', serif;
+      letter-spacing: 2px;
+      text-shadow: 0 0 6px #990000;
+      margin-bottom: 0.5rem;
+    }
+
+    .notice {
+      font-family: 'Spectral', serif;
+      font-size: 1.22rem;
+      font-style: italic;
+      color: #ffb3b3;
+      background: rgba(40,0,0,0.17);
+      border-left: 3.5px solid #cc0000;
+      padding: 0.5em 1.1em;
+      margin: 1.2em auto 2.2em auto;
+      border-radius: 7px;
+      max-width: 730px;
+      text-align: left;
+      box-shadow: 0 0 7px #cc0000a1;
+      letter-spacing: 0.1px;
+    }
+
+    @media (max-width: 900px) {
+      .container { max-width: 98vw; }
+      .magazine-page img { max-width: 97vw; }
+    }
+    @media (max-width: 600px) {
+      h1 { font-size: 2rem; }
+      .magazine-page img { max-width: 99vw; }
+      .container { padding: 1rem 0.1rem 0.3rem 0.1rem; }
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="media.html" class="back-link">&larr; Back to Media Gallery</a>
+    <h1>Game Scans and Info on Variants</h1>
+    <h3 class="notice">
+      IMPORTANT NOTICE: These scans were taken online and the owner's consent was requested wherever possible.
+    </h3>
+
+    <div class="magazine-gallery">
+      <div class="magazine-page">
+        <a href="assets/images/mn_scan/mn_pp.jpg" target="_blank" rel="noopener">
+          <img src="assets/images/mn_scan/mn_pp.jpg" alt="Page m01" class="magazine-scan-page">
+        </a>
+        <span class="label">Front Cover (Playstation Points sticker)</span>
+      </div>
+      <div class="magazine-page">
+        <a href="assets/images/mn_scan/mn_scan0.jpg" target="_blank" rel="noopener">
+          <img src="assets/images/mn_scan/mn_scan0.jpg" alt="Page m01" class="magazine-scan-page">
+        </a>
+        <span class="label">Cover (Regular Retail Version)</span>
+      </div>
+      <div class="magazine-page">
+        <a href="assets/images/mn_scan/mn_scan1.jpg" target="_blank" rel="noopener">
+          <img src="assets/images/mn_scan/mn_scan1.jpg" alt="Page m02" class="magazine-scan-page">
+        </a>
+        <span class="label">Manual (Front)</span>
+      </div>
+      <div class="magazine-page">
+        <a href="assets/images/mn_scan/mn_scan2.jpg" target="_blank" rel="noopener">
+          <img src="assets/images/mn_scan/mn_scan2.jpg" alt="Page m03" class="magazine-scan-page">
+        </a>
+        <span class="label">Manual (Back)</span>
+      </div>
+      <div class="magazine-page">
+        <a href="assets/images/mn_scan/mn_scan3.jpg" target="_blank" rel="noopener">
+          <img src="assets/images/mn_scan/mn_scan3.jpg" alt="Page m04" class="magazine-scan-page">
+        </a>
+        <span class="label">Disc</span>
+      </div>
+      <div class="magazine-page">
+        <a href="assets/images/mn_scan/mn_scan4.jpg" target="_blank" rel="noopener">
+          <img src="assets/images/mn_scan/mn_scan4.jpg" alt="Page m05" class="magazine-scan-page">
+        </a>
+        <span class="label">Insert (Front) - Playstation Points Reward System</span>
+      </div>
+      <div class="magazine-page">
+        <a href="assets/images/mn_scan/mn_scan5.jpg" target="_blank" rel="noopener">
+          <img src="assets/images/mn_scan/mn_scan5.jpg" alt="Page m06" class="magazine-scan-page">
+        </a>
+        <span class="label">Insert (Back)</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

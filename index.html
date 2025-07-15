@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mystic Nights Archive</title>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Rock+Salt&family=Nanum+Brush+Script&display=swap" rel="stylesheet">
 
-  <!-- Self-hosted fonts -->
   <style>
     @font-face {
       font-family: 'Megrim';
@@ -14,7 +14,6 @@
       font-style: normal;
       font-display: block;
     }
-
     @font-face {
       font-family: 'Spectral';
       src: url('fonts/Spectral-Light.ttf') format('truetype');
@@ -22,7 +21,6 @@
       font-style: normal;
       font-display: block;
     }
-
     @font-face {
       font-family: 'Spectral';
       src: url('fonts/Spectral-Regular.ttf') format('truetype');
@@ -30,7 +28,6 @@
       font-style: normal;
       font-display: block;
     }
-
     @font-face {
       font-family: 'Spectral';
       src: url('fonts/Spectral-SemiBold.ttf') format('truetype');
@@ -38,6 +35,10 @@
       font-style: normal;
       font-display: block;
     }
+    @import url('https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=WindSong:wght@700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&family=Butcherman&family=Creepster&display=swap');
 
     body {
       margin: 0;
@@ -46,13 +47,15 @@
       line-height: 1.6;
       background-color: #0c0c0c;
       color: #e0e0e0;
-      background-image: url('https://raw.githubusercontent.com/jeremydecola/Mystic-Nights-Translation/refs/heads/master/GRAPHICS/COVERART.png');
-      background-size: cover;
+      background-image: url('assets/images/coverart.png');
+      background-size: 100%;
       background-attachment: scroll;
+      background-position: center top;
+      background-repeat: repeat-y;
     }
 
     header {
-      background-color: rgba(0, 0, 0, 0.95);
+      background-color: rgba(0, 0, 0, 0.97);
       padding: 1rem 0;
       position: sticky;
       top: 0;
@@ -60,11 +63,9 @@
       border-bottom: 1px solid #990000;
       box-shadow: 0 0 10px #660000;
     }
-
     nav {
       text-align: center;
     }
-
     nav a {
       font-family: 'Megrim', cursive;
       margin: 0 1rem;
@@ -74,67 +75,404 @@
       letter-spacing: 1px;
       transition: all 0.3s ease;
     }
-
     nav a:hover {
       color: #ff3333;
       text-shadow: 0 0 5px red;
     }
-
-    .container {
-      background-color: rgba(0, 0, 0, 0.85);
-      max-width: 800px;
-      margin: 3rem auto;
-      padding: 2rem;
-      border: 1px solid #660000;
-      box-shadow: 0 0 20px #990000;
+    /* Main Layout: Flex row */
+    .main-flex {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      max-width: 1620px;
+      margin: 0 auto 0 auto;
+      gap: 3vw;
     }
 
-    h1 {
-      font-family: 'Megrim', cursive;
-      color: #cc0000;
+    /* === Ancient Scroll Style === */
+    .mp-scroll-block {
+      min-width: 248px;
+      max-width: 288px;
+      background: linear-gradient(180deg, #161616 4%, #221d1b 70%, #1c1613 100%);
+      border-radius: 35px 35px 39px 39px;
+      border-left: 9px double #494038;
+      border-right: 9px double #494038;
+      border-top: 5px solid #dfce99;
+      border-bottom: 5px solid #dfce99;
+      box-shadow: 
+        0 0 60px #212  , 
+        0 0 6px #ffe58d60,
+        10px 4px 24px #090707b1;
+      padding: 2.7rem 0.8rem 1.4rem 0.8rem;
+      margin: 3.6rem 0 3.4rem 2vw;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      background-image: repeating-linear-gradient(90deg, rgba(232,200,128,0.08) 0 2px, transparent 3px 22px), url('https://www.transparenttextures.com/patterns/wood-pattern.png');
+      background-blend-mode: overlay;
+      position: sticky;
+      top: 3.4rem;
+      z-index: 10;
+    }
+    .mp-scroll-title {
+      font-family: 'Creepster', 'Butcherman', 'Nanum Brush Script', cursive;
+      font-size: 2.6rem;
+      color: #111;
+      background: none;
+      margin-bottom: 1.4rem;
+      letter-spacing: 2px;
+      writing-mode: horizontal-tb;
+      border: none;
+      padding: 0;
       text-align: center;
-      font-size: 4rem;
-      margin-top: 2rem;
-      text-shadow: 0 0 10px #550000;
+      /* Fake bold effect for brush font: */
+      text-shadow:
+        1px 0 0 #111,
+        0 1px 0 #111,
+        -1px 0 0 #111,
+        0 -1px 0 #111,
+        1.5px 1.5px 0 #999,
+        0 0 9px #fff8;
     }
-
-    h2 {
-      font-family: 'Megrim', cursive;
-      color: #cc0000;
+    
+    .mp-scroll-footnote {
+      font-family: 'Creepster', 'Butcherman', 'Nanum Brush Script', cursive;
+      font-size: 2.65rem;
+      color: #111;
       text-align: center;
-      font-size: 2rem;
-      margin-top: 2.5rem;
+      margin: 1.4rem 0 0.7rem 0;
+      letter-spacing: 1.2px;
+      /* Same fake bold: */
+      text-shadow:
+        1px 0 0 #111,
+        0 1px 0 #111,
+        -1px 0 0 #111,
+        0 -1px 0 #111,
+        1.5px 1.5px 0 #999,
+        0 0 9px #fff8;
     }
 
-    a {
-      color: #cc6666;
-      text-decoration: none;
-    }
-
-    a:hover {
-      color: #ff3333;
-      text-shadow: 0 0 5px red;
-    }
-
-    img {
-      max-width: 100%;
-      border: 2px solid #660000;
-      margin-bottom: 1rem;
-    }
-
-    video, iframe {
+    .mp-scroll-video-embed {
       width: 100%;
-      margin-top: 1rem;
-      border: 2px solid #660000;
+      max-width: 420px;
+      aspect-ratio: 16 / 9;
+      background: #000;
+      margin: 2rem auto 1rem auto;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 0 20px #1c0000c2, 0 0 8px #000b;
+      border: 2.5px solid #350b15;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-
-    .section {
-      margin-bottom: 2rem;
-    }
-
-    .centered-image {
+    .mp-scroll-video-embed iframe {
+      width: 100%;
+      height: 100%;
       display: block;
-      margin: 1rem auto;
+      border: none;
+      border-radius: 16px;
+    }
+    
+    /* Make it horizontal and stacked on mobile */
+    @media (max-width: 1000px) {
+      .main-flex { flex-direction: column; align-items: center;}
+      .mp-scroll-block {
+        background: linear-gradient(180deg, #0a090c 60%, #120e13 100%);
+        border: 3.5px solid #241116;
+        box-shadow: 0 0 38px #000a, 0 0 11px #51000070, 0 0 8px #111;
+        filter: brightness(0.90) contrast(1.12) grayscale(0.12);
+      }
+
+      .mp-scroll-title, .mp-scroll-footnote {
+        writing-mode: horizontal-tb;
+        text-orientation: initial;
+        margin: 1.1rem 1.2rem 0.7rem 1.2rem;
+        border-left: none; border-right: none;
+        padding: 0.5rem 0 0.5rem 0;
+      }
+      .mp-scroll-video-embed {
+        width: 98vw; max-width: 340px; height: 194px; 
+        border-radius: 14px; margin: 1.1rem auto 0.6rem auto; 
+        background: #1b1810; 
+        box-shadow: 0 0 17px #b6a67480, 0 0 2px #fff6;
+      }
+      .mp-scroll-video-embed iframe {
+        width: 100%; height: 194px; 
+        border-radius: 14px; 
+        transform: none; 
+      }
+    }
+    .mp-revival-block {
+      margin: 2.6rem auto 2.3rem auto;
+      padding: 2.2rem 1.2rem 1.2rem 1.2rem;
+      background: linear-gradient(120deg, rgba(40,0,0,0.72) 60%, rgba(50,0,22,0.86) 100%);
+      border-radius: 23px;
+      box-shadow: 0 0 44px #cc0000, 0 0 9px #fff6;
+      text-align: center;
+      max-width: 650px;
+      position: relative;
+      border: 2.5px solid #ff3333;
+    }
+    .mp-revival-title {
+      font-family: 'UnifrakturCook', 'Megrim', cursive;
+      font-size: 2.3rem;
+      color: #ff3939;
+      letter-spacing: 2.5px;
+      margin-bottom: 1.5rem;
+      font-weight: bold;
+      text-shadow: 
+        0 0 18px #fff, 
+        0 0 32px #ff2222aa, 
+        0 0 6px #ff444488, 
+        0 0 1px #fff;
+      filter: brightness(1.12);
+      animation: glowpulse 1.6s infinite alternate cubic-bezier(.44,1.31,.62,1.03);
+    }
+    .glow-text {
+      display: inline-block;
+      background: linear-gradient(92deg, #fff2, #ff3333 49%, #fff2 51%, #ffdede 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    @keyframes glowpulse {
+      from { text-shadow: 0 0 12px #fff8, 0 0 32px #ff2222aa; }
+      to { text-shadow: 0 0 25px #ff1111cc, 0 0 38px #fff; }
+    }
+    .mp-video-embed {
+      margin: 0 auto;
+      max-width: 560px;
+      border-radius: 17px;
+      overflow: hidden;
+      box-shadow: 0 0 20px #99000099, 0 0 4px #fff8;
+      border: 2px solid #ff3333;
+    }
+    .mp-video-embed iframe {
+      width: 100%;
+      height: 315px;
+      display: block;
+      border-radius: 17px;
+      background: #000;
+    }
+    @media (max-width: 700px) {
+      .mp-revival-block { padding: 1.2rem 0.2rem 0.2rem 0.2rem; }
+      .mp-revival-title { font-size: 1.35rem; }
+      .mp-video-embed { max-width: 99vw; }
+      .mp-video-embed iframe { height: 46vw; min-height: 160px; }
+    }
+
+    .poster-hero {
+      position: relative;
+      background: linear-gradient(180deg, rgba(15,0,0,0.93) 5%, rgba(0,0,0,0.92) 98%);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 0 60px #99000080, 0 0 20px #000a;
+      margin: 2.5rem auto 2.8rem auto;
+      max-width: 850px;
+      min-height: 620px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+    }
+    .poster-hero .poster-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      opacity: 0.68;
+      background: url('assets/images/pp01.jpg') center top/cover no-repeat;
+      background-size: contain;
+      background-position: center center;
+      background-repeat: no-repeat;
+      filter: none;
+    }
+    .poster-hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      width: 96%;
+      padding: 3.4rem 1.6rem 2.2rem 1.6rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+    }
+    .poster-hero h1 {
+      font-family: 'UnifrakturCook', 'Megrim', cursive;
+      color: #ff2222;
+      font-size: 3.7rem;
+      text-shadow: 0 0 30px #c10000c7, 0 0 12px #fff4;
+      margin-bottom: 0.8rem;
+      margin-top: 0;
+      letter-spacing: 2.5px;
+      filter: brightness(1.09);
+    }
+    .synopsis {
+      font-family: 'Share Tech Mono', 'Spectral', serif;
+      font-size: 1.19rem;
+      color: #fff7f2;
+      background: rgba(10,0,0,0.69);
+      border-radius: 11px;
+      box-shadow: 0 0 28px #d400001a, 0 0 2px #fff5;
+      padding: 1.7rem 2.2rem 1.7rem 2.2rem;
+      max-width: 600px;
+      margin: 1.4rem auto 2.4rem auto;
+      text-align: left;
+      line-height: 1.7;
+      border-left: 4px solid #ff3333cc;
+      border-right: 4px solid #ff3333cc;
+    }
+    .synopsis strong {
+      color: #ff6666;
+      font-size: 1.09em;
+      letter-spacing: 1px;
+      font-family: 'Megrim', cursive;
+    }
+    .stylish-synopsis {
+      font-family: 'Share Tech Mono', 'Spectral', serif;
+      font-size: 1.18rem;
+      color: #ffe0e0;
+      background: rgba(10,0,0,0.73);
+      border-radius: 12px;
+      box-shadow: 0 0 30px #33000060, 0 0 2px #fff6;
+      padding: 2.1rem 2.6rem 1.8rem 2.6rem;
+      max-width: 660px;
+      margin: 1.5rem auto 2.5rem auto;
+      text-align: center;
+      line-height: 1.9;
+      border-left: 5px solid #ff3333cc;
+      border-right: 5px solid #ff3333cc;
+      letter-spacing: 0.1em;
+    }
+    
+    .stylish-synopsis .syn-welcome {
+      font-family: 'UnifrakturCook', 'Megrim', cursive;
+      font-size: 2.12rem;
+      color: #ff3333;
+      display: block;
+      letter-spacing: 2px;
+      margin-bottom: 0.7rem;
+      text-shadow: 0 0 16px #e10000b5, 0 0 4px #fff2;
+      font-weight: 700;
+    }
+    .stylish-synopsis .syn-archive {
+      font-family: 'Spectral', serif;
+      font-size: 1.16rem;
+      color: #ffeaea;
+      display: block;
+      margin-bottom: 1.1rem;
+    }
+    .stylish-synopsis .game-title {
+      font-family: 'Megrim', cursive;
+      color: #ff6666;
+      font-size: 1.2em;
+      text-shadow: 0 0 6px #fff7, 0 0 1px #fff;
+      letter-spacing: 2px;
+    }
+    .stylish-synopsis .syn-tagline {
+      display: block;
+      font-size: 1.06rem;
+      color: #f8b8b8;
+      margin-bottom: 1.2rem;
+      text-shadow: 0 0 4px #ff3333;
+    }
+    .stylish-synopsis .ghost-red {
+      color: #ff3333;
+      font-family: 'Megrim', cursive;
+      font-size: 1.07em;
+      letter-spacing: 2px;
+    }
+    .stylish-synopsis .syn-label {
+      display: block;
+      color: #ffe0e0;
+      font-size: 1.05rem;
+      font-family: 'Megrim', cursive;
+      margin-bottom: 0.3rem;
+      margin-top: 0.5rem;
+      letter-spacing: 1.5px;
+    }
+    .stylish-synopsis .syn-story {
+      display: block;
+      margin-top: 0.2rem;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 1.1rem;
+    }
+    .stylish-synopsis .ghost-white {
+      color: #fff;
+      text-shadow: 0 0 8px #d1000088, 0 0 2px #fff;
+    }
+    .stylish-synopsis .ghost-quote {
+      color: #ffeaea;
+      font-style: italic;
+      font-size: 1.01em;
+      text-shadow: 0 0 6px #33000066;
+      margin-bottom: 0.8rem;
+      display: block;
+      letter-spacing: 0.05em;
+    }
+
+    .feature-flex {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2.2rem;
+      margin-top: 1.5rem;
+      margin-bottom: 0.8rem;
+    }
+    .feature-panel {
+      background: linear-gradient(120deg, rgba(25,0,0,0.30) 60%, rgba(20,0,18,0.32) 100%);
+      border-radius: 14px;
+      box-shadow: 0 0 24px #660000a0, 0 0 2px #fff2;
+      border: 1.2px solid #990000;
+      padding: 1.4rem 1.3rem 1.35rem 1.3rem;
+      min-width: 240px;
+      max-width: 330px;
+      color: #ffeaea;
+      flex: 1 1 265px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      margin-bottom: 0.5rem;
+      font-family: 'Share Tech Mono', 'Spectral', serif;
+      font-size: 1.13rem;
+      text-align: center;
+    }
+    .feature-panel:hover {
+      box-shadow: 0 0 48px #e6000030, 0 0 16px #fff4;
+      border-color: #ff3333;
+      z-index: 2;
+    }
+    .feature-panel h3 {
+      font-family: 'UnifrakturCook', 'Megrim', cursive;
+      color: #ff3333;
+      margin-top: 0;
+      font-size: 1.39rem;
+      letter-spacing: 1.1px;
+      text-shadow: 0 0 5px #a20000b3;
+      text-align: center;
+      margin-bottom: 1.07rem;
+      filter: brightness(1.05);
+    }
+    .feature-panel .feature-desc {
+      margin: 0;
+      padding: 0;
+      color: #ffd6d6;
+      text-shadow: 0 0 9px #660000b2;
+    }
+    .feature-panel .feature-desc em {
+      color: #ffb3b3;
+      font-style: italic;
+      text-shadow: 0 0 5px #660000;
+    }
+    @media (max-width: 980px) {
+      .poster-hero { min-height: 580px; max-width: 98vw;}
+      .poster-hero-content { padding: 2rem 1.2rem 1.1rem 1.2rem;}
+      .feature-flex { flex-direction: column; gap: 1.5rem; }
+      .feature-panel { min-width: 0; max-width: 98vw; }
+      .synopsis { max-width: 96vw; }
     }
   </style>
 </head>
@@ -143,30 +481,94 @@
     <nav>
       <a href="index.html">Home</a>
       <a href="media.html">Media</a>
-      <a href="lore.html">Lore</a>
+      <a href="about.html">About</a>
       <a href="https://github.com/jeremydecola/Mystic-Nights-Translation" target="_blank">Translation</a>
       <a href="https://github.com/jeremydecola/Mystic-Nights-Online" target="_blank">Multiplayer</a>
       <a href="mailto:jeremydecola@gmail.com?subject=Mystic%20Nights%20Archive%20Inquiry">Contact Me</a>
     </nav>
   </header>
+  <div class="main-flex">
+    <!-- Ancient Scroll -->
+    <aside class="mp-scroll-block">
+      <div class="mp-scroll-title">MULTIPLAYER REVIVAL RELEASED!</div>
+      <div class="mp-scroll-video-embed">
+        <iframe 
+          src="https://www.youtube.com/embed/YOUR_VIDEO_ID_HERE"
+          title="Mystic Nights Multiplayer Revival"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+      <div class="mp-scroll-footnote">
+        I’ve reverse-engineered and revived the Multiplayer game mode!
+      </div>
 
-  <div class="container">
-    <h1>Mystic Nights Archive</h1>
-
-    <div class="section">
-      <p><strong>Welcome, stranger.</strong><br>This is a fan-maintained archival site for <em>Mystic Nights</em>, a forgotten PS2 Survival Horror / Mystery game developed in Korea and published by Sony Computer Entertainment Korea on October 20th, 2005.</p>
+    </aside>
+    <!-- Main Content / Poster and rest of the page -->
+    <div style="flex:1; min-width:0;">
+      <div class="poster-hero">
+        <div class="poster-bg"></div>
+        <div class="poster-hero-content">
+          <h1>Mystic Nights Archive</h1>
+		  
+          <div class="synopsis stylish-synopsis">
+            <span class="syn-welcome">Welcome, stranger.</span>
+            <span class="syn-archive">You’ve uncovered the lost archive of <span class="game-title">Mystic Nights</span>—<br>
+            the most mysterious PS2 survival horror game ever released.</span>
+            <span class="syn-tagline">
+              <span class="ghost-red">October 20, 2005. Sony Computer Entertainment Korea.</span>
+            </span>
+            <span class="syn-label">Synopsis:</span>
+            <span class="syn-story">
+              <span class="ghost-white">
+                <strong>A Korean-Made Survival Horror Adventure for PlayStation<sup>®</sup>2.</strong>
+              </span>
+              <br>
+              <span class="ghost-quote">
+                Bruce MacLenn, a solitary biology professor, receives a cryptic letter from a long-lost friend.<br>
+                Allen’s message beckons him to a secret research facility, isolated in the southern seas.<br>
+                Enclosed: a bizzare photograph—rekindling thoughts and feelings Bruce thought were gone forever.
+              </span>
+              <br>
+              <span class="ghost-white">
+                Compelled by curiosity—and dread—Bruce steps into a forgotten world where buried memories, danger, and the unknown await. <br>
+                <em>Sometimes, the past refuses to stay dead…</em>
+              </span>
+            </span>
+          </div>
+		  
+          <div class="feature-flex">
+            <div class="feature-panel">
+              <h3>The First Horror Adventure by a Korean Studio</h3>
+              <div class="feature-desc">
+                Crafted over three years by N-LOG Soft,<br>
+                The <em>“Night of Terror”</em> begins.
+                Defeat as many enemies as you can in Story Mode and level up your weapons.
+                You'll need to train hard to face the creatures that await you in the depths of the MISR.
+              </div>
+            </div>
+            <div class="feature-panel">
+              <h3>A Multi-Ending System Like No Other</h3>
+              <div class="feature-desc">
+                Every note you collect leads you down a different path and changes your fate.<br>
+                Unlock multiple endings based on how many you find.<br>
+                <em>Not every note will reveal itself so easily—can you find and decipher them all?</em>
+              </div>
+            </div>
+            <div class="feature-panel">
+              <h3>Find the Traitor: Online Multiplayer Suspense</h3>
+              <div class="feature-desc">
+                Step into <strong>NETWORK GAME</strong> mode and face the unknown with three other players.<br>
+                But beware: <em>one of you is secretly a vampire</em>.<br>
+                Survive the night—or be betrayed by a friend.
+              </div>
+            </div>
+            <p style="font-size: 0.8rem; margin-top: 3rem; text-align: center;">
+              <em>This is a non-commercial fan archive created for historical preservation under Canadian fair dealing law.<br>
+              All media is credited to the original developers (N-Log Soft) and Sony Computer Entertainment Korea Inc. (SCEK).</em>
+            </p>
+          </div>
+      </div>
     </div>
-
-    <div class="section">
-      <h2>Game Overview</h2>
-      <p>TBD.</p>
-      <img src="assets/images/pp01.jpg" alt="Promo Poster 1" class="centered-image">
-      <iframe height="315" src="https://www.youtube.com/embed/YOUR_VIDEO_ID" frameborder="0" allowfullscreen></iframe>
-    </div>
-
-    <p style="font-size: 0.8rem; margin-top: 3rem; text-align: center;">
-      <em>This is a non-commercial fan archive created for historical preservation under Canadian fair dealing law.<br> All media is credited to the original developers (N-Log Soft) and Sony Computer Entertainment Korea Inc. (SCEK).</em>
-    </p>
-  </div>
 </body>
 </html>
