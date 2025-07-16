@@ -198,6 +198,61 @@
       cursor: pointer;
       z-index: 2;
     }
+    .featured-blog {
+      background: linear-gradient(95deg, rgba(24,18,30,0.93) 75%, rgba(68,20,20,0.13) 100%);
+      border-left: 5px solid #399d88;
+      box-shadow: 0 0 22px #101a0f80, 0 0 2px #fff3;
+      margin: 2.8rem 0 0.6rem 0;
+      padding: 1.6em 1.7em 1.45em 2.2em;
+      border-radius: 17px;
+      font-family: 'Spectral', serif;
+      color: #c2efe2;
+      font-size: 1.13em;
+      letter-spacing: 0.01em;
+      text-shadow: 0 0 8px #39ffa788, 0 0 2px #fff5, 0 0 1px #000;
+      position: relative;
+      max-width: 650px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .featured-blog .blog-title {
+      font-family: 'Megrim', cursive;
+      font-size: 1.22em;
+      color: #7cfed0;
+      margin-bottom: 0.18em;
+      letter-spacing: 0.09em;
+      text-shadow: 0 0 18px #4dffb888, 0 0 1px #fff;
+      font-weight: bold;
+    }
+    
+    .featured-blog .blog-link {
+      font-family: 'Megrim', cursive;
+      color: #2cffb6;
+      background: rgba(9,38,32,0.25);
+      border-bottom: 2px dashed #53ffd8;
+      border-radius: 7px;
+      padding: 0.05em 0.28em 0.05em 0.28em;
+      font-size: 1.14em;
+      margin-left: 0.25em;
+      letter-spacing: 0.06em;
+      transition: 
+        background 0.15s,
+        color 0.16s,
+        box-shadow 0.16s,
+        border-color 0.2s;
+      text-shadow: 0 0 6px #21ffb988, 0 0 1px #fff;
+    }
+    .featured-blog .blog-link:hover, 
+    .featured-blog .blog-link:focus {
+      color: #0d273e;
+      background: #3cffde;
+      border-color: #00c1a2;
+      text-shadow: 0 0 12px #fff, 0 0 2px #1affbb, 0 0 1px #333;
+      box-shadow: 0 0 18px #9cffea80, 0 0 6px #23e4c380;
+      outline: none;
+    }
+
   </style>
 </head>
 <body>
@@ -207,13 +262,28 @@
       <a href="media.html">Media</a>
       <a href="about.html">About</a>
       <a href="https://github.com/jeremydecola/Mystic-Nights-Translation" target="_blank">Translation</a>
-      <a href="https://github.com/jeremydecola/Mystic-Nights-Online" target="_blank">Multiplayer</a>
+      <a href="multiplayer.html">Multiplayer</a>
       <a href="mailto:jeremydecola@gmail.com?subject=Mystic%20Nights%20Archive%20Inquiry">Contact Me</a>
     </nav>
   </header>
 
   <div class="container">
     <h1>More about the game</h1>
+
+    <div class="section">
+      <h2>Developer Interview</h2>
+      <a href="https://game.donga.com/23795/" target="_blank" rel="noopener" 
+         class="magazine-link" title="Read the 2005 Developer Interview (Korean)">
+        <img 
+          src="assets/images/tae-kyung-kim.jpg" 
+          alt="Director Tae-kyung Kim (김태경), N-Log Soft" 
+          class="centered-image magazine-scan"
+          style="max-width:500px; border-radius:12px; margin-bottom:0.7em;"
+        >
+        <span class="mag-hover-badge">Read Interview</span>
+      </a>
+      <div style="text-align:center;color:#aaa;font-size:0.98em;margin-top:-0.7em;">2005, Game Donga / Director Tae-kyung Kim (김태경)</div>
+    </div>
 
     <div class="section">
       <h2>Internal Investors Pitch</h2>
@@ -223,10 +293,14 @@
       </a>
     </div>
 
-    <div class="section">
-      <h2>How I discovered Mystic Nights</h2>
-      <p>Check out this very insightful blog post from 2018 detailing the writer's quest to track down an elusive physical copy of Mystic Nights in the now defunct Yongsan Market in Seoul :</p>
-      <p><a href="https://horror.dreamdawn.com/?p=14800178" target="_blank">Chris' Survival Horror Quest</a></p>
+    <div class="featured-blog">
+      <div class="blog-title">A Lost Survival Horror Quest</div>
+      <div>
+        In 2018, one fan set out to track down a physical copy of <b>Mystic Nights</b> in the shadowy corridors of Seoul’s legendary Yongsan Market—just before its closure forever.<br>
+        <a href="https://horror.dreamdawn.com/?p=14800178" class="blog-link" target="_blank" rel="noopener">
+          Read Chris’ Survival Horror Quest
+        </a>
+      </div>
     </div>
 
     <p style="font-size: 0.8rem; margin-top: 3rem; text-align: center;">

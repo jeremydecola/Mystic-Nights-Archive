@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mystic Nights Multiplayer</title>
+
+  <style>
+    @font-face {
+      font-family: 'Megrim';
+      src: url('fonts/Megrim-Regular.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: block;
+    }
+
+    @font-face {
+      font-family: 'Spectral';
+      src: url('fonts/Spectral-Light.ttf') format('truetype');
+      font-weight: 300;
+      font-style: normal;
+      font-display: block;
+    }
+
+    @font-face {
+      font-family: 'Spectral';
+      src: url('fonts/Spectral-Regular.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: block;
+    }
+
+    @font-face {
+      font-family: 'Spectral';
+      src: url('fonts/Spectral-SemiBold.ttf') format('truetype');
+      font-weight: 600;
+      font-style: normal;
+      font-display: block;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Spectral', serif;
+      font-size: 20px;
+      line-height: 1.6;
+      background-color: #0c0c0c;
+      color: #e0e0e0;
+      background-image: url('assets/images/coverart.png');
+      background-size: auto;
+      background-attachment: scroll;
+      background-position: center top;
+      background-repeat: repeat-y;
+      background-size: 100%;
+    }
+
+    header {
+      background-color: rgba(0, 0, 0, 0.95);
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid #990000;
+      box-shadow: 0 0 10px #660000;
+    }
+
+    nav {
+      text-align: center;
+    }
+
+    nav a {
+      font-family: 'Megrim', cursive;
+      margin: 0 1rem;
+      color: #cc6666;
+      text-decoration: none;
+      font-size: 2.4rem;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #ff3333;
+      text-shadow: 0 0 5px red;
+    }
+
+    .container {
+      background-color: rgba(0, 0, 0, 0.85);
+      max-width: 800px;
+      margin: 3rem auto;
+      padding: 2rem;
+      border: 1px solid #660000;
+      box-shadow: 0 0 20px #990000;
+    }
+
+    h1 {
+      font-family: 'Megrim', cursive;
+      color: #cc0000;
+      text-align: center;
+      font-size: 4rem;
+      margin-top: 2rem;
+      text-shadow: 0 0 10px #550000;
+    }
+
+    h2 {
+      font-family: 'Megrim', cursive;
+      color: #cc0000;
+      text-align: center;
+      font-size: 2rem;
+      margin-top: 2.5rem;
+    }
+
+    a {
+      color: #cc6666;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: #ff3333;
+      text-shadow: 0 0 5px red;
+    }
+
+    img {
+      max-width: 100%;
+      border: 2px solid #660000;
+      margin-bottom: 1rem;
+    }
+
+    video, iframe {
+      width: 100%;
+      margin-top: 1rem;
+      border: 2px solid #660000;
+    }
+
+    .section {
+      margin-bottom: 2rem;
+    }
+
+    .centered-image {
+      display: block;
+      margin: 1rem auto;
+    }
+
+    .magazine-link {
+      display: block;
+      width: fit-content;
+      margin: 0 auto;
+      position: relative;
+    }
+    
+    .magazine-link .mag-hover-badge {
+      font-family: 'Megrim', cursive;
+      position: absolute;
+      left: 50%;
+      top: 97%;
+      transform: translate(-50%, -50%) scale(0.95);
+      background: rgba(20,0,0,0.87);
+      color: #ff3333;
+      border: 1.5px solid #cc0000;
+      padding: 0.28em 1em 0.22em 1em;
+      border-radius: 8px;
+      box-shadow: 0 0 16px #660000b3;
+      font-size: 1.22rem;
+      letter-spacing: 2px;
+      text-shadow: 0 0 7px #a10000, 0 0 2px #fff8;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.22s cubic-bezier(0.52, 0.11, 0.72, 0.82), transform 0.22s cubic-bezier(0.52, 0.11, 0.72, 0.82);
+      z-index: 5;
+    }
+    
+    .magazine-link:hover .mag-hover-badge,
+    .magazine-link:focus .mag-hover-badge {
+      opacity: 1;
+      transform: translate(-50%, -90%) scale(1.09) rotate(-2deg);
+    }
+    
+    .magazine-link:hover .magazine-scan,
+    .magazine-link:focus .magazine-scan {
+      border-color: #ff3333;
+      box-shadow: 0 0 48px #e6000030, 0 0 12px #fff3;
+      transform: scale(1.06) rotate(-2deg);
+    }
+    
+    .magazine-scan {
+      max-width: 400px;
+      width: 100%;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      border: 2.5px solid #990000;
+      box-shadow: 0 0 22px #39070777, 0 0 2px #fff2;
+      border-radius: 12px;
+      position: relative;
+      transition: 
+        box-shadow 0.3s cubic-bezier(0.44,1.19,0.7,1.02),
+        border-color 0.28s cubic-bezier(0.44,1.19,0.7,1.02),
+        transform 0.23s cubic-bezier(0.44,1.19,0.7,1.02);
+      cursor: pointer;
+      z-index: 2;
+    }
+    .network-config-gallery {
+      display: flex;
+      flex-direction: column;
+      gap: 3.3rem;
+      margin: 2rem 0;
+    }
+    
+    .step-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 510px;
+      margin: 0 auto;
+      background: rgba(25, 0, 0, 0.22);
+      border-radius: 22px;
+      box-shadow: 0 0 38px #2a00008a, 0 0 9px #ff111111;
+      transition: box-shadow 0.18s;
+      padding: 2.1rem 1.1rem 1.7rem 1.1rem;
+      border: 2px solid #660000;
+    }
+    
+    .step-block:hover, .step-block:focus-within {
+      box-shadow: 0 0 44px #ff2222a2, 0 0 12px #fff6;
+      border-color: #ff3333;
+    }
+    
+    .step-block img {
+      display: block;
+      max-width: 95%;
+      width: 410px;
+      border-radius: 14px;
+      box-shadow: 0 0 22px #9e313130, 0 0 5px #fff2;
+      border: 2.5px solid #990000;
+      background: #181010;
+      margin-bottom: 0.3rem;
+      transition: box-shadow 0.2s, border-color 0.18s, transform 0.14s;
+    }
+    
+    .step-block img:hover {
+      box-shadow: 0 0 52px #cc000055, 0 0 18px #ff222244;
+      border-color: #ff3333;
+      transform: scale(1.02) rotate(-1deg);
+    }
+    
+    .caption {
+      font-family: 'Spectral', serif;
+      font-size: 1.12rem;
+      margin-top: -0.25rem;
+      margin-bottom: 0;
+      padding: 1.2rem 1.3rem 1.2rem 1.3rem;
+      background: linear-gradient(120deg, rgba(20,0,0,0.25) 70%, rgba(66,0,14,0.23) 100%);
+      border-radius: 0 0 14px 14px;
+      color: #ffe0e0;
+      box-shadow: 0 0 14px #a1000059;
+      width: 100%;
+      text-align: center;
+      letter-spacing: 0.03em;
+      border-top: 1px solid #aa2222;
+      border-bottom: 1.5px solid #ff333380;
+    }
+    
+    .caption strong {
+      color: #ff3333;
+      font-family: 'Megrim', cursive;
+      font-size: 1.17em;
+      text-shadow: 0 0 6px #cc0000a8, 0 0 1px #fff;
+      letter-spacing: 1.4px;
+    }
+    .flashy-github-link {
+      display: inline-block;
+      font-family: 'Megrim', cursive;
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #fff1f8;
+      background: linear-gradient(90deg, #181014 0%, #1a1012 55%, #37020f 100%);
+      border: 3px solid #2e1016;
+      border-radius: 26px;
+      box-shadow:
+        0 0 44px 8px #19020a99,
+        0 0 18px 2px #b1000065,
+        0 0 4px 2px #0008;
+      padding: 1.05rem 2.7rem 1.13rem 2.7rem;
+      margin: 0 auto 2.6rem auto;
+      text-align: center;
+      text-decoration: none !important;
+      letter-spacing: 2.4px;
+      text-shadow:
+        0 0 19px #de232322,
+        0 0 2px #b4002a,
+        0 0 1px #000;
+      transition:
+        background 0.23s cubic-bezier(.44,1.19,.7,1.02),
+        box-shadow 0.19s,
+        color 0.13s;
+      animation: gh-haunt-pulse 2.9s infinite alternate cubic-bezier(.45,1.17,.67,1.03);
+      position: relative;
+      cursor: pointer;
+      outline: none;
+    }
+    .flashy-github-link:hover,
+    .flashy-github-link:focus {
+      background: linear-gradient(92deg, #211218 0%, #240e14 70%, #3e010f 100%);
+      color: #fff6fa;
+      box-shadow:
+        0 0 88px 2px #7d1038,
+        0 0 32px 4px #2e010bbb,
+        0 0 17px 3px #bd273c55,
+        0 0 8px 2px #b8002099;
+      border-color: #4d1d28;
+    }
+    @keyframes gh-haunt-pulse {
+      0% {
+        box-shadow:
+          0 0 44px 8px #19020a99,
+          0 0 20px 2px #b1000035,
+          0 0 6px 2px #2e010b19;
+        text-shadow: 0 0 18px #efdaff11, 0 0 2px #a62955, 0 0 1px #000;
+      }
+      100% {
+        box-shadow:
+          0 0 80px 18px #38061b44,
+          0 0 55px 12px #93002233,
+          0 0 23px 5px #ff375580,
+          0 0 10px 5px #b8002020;
+        text-shadow: 0 0 32px #f9d6ff22, 0 0 2px #fff, 0 0 5px #bd273c80;
+      }
+    }
+    .flashy-github-link .play-online {
+      display: block;
+      color: #ff324b;
+      font-size: 2.38rem;
+      text-shadow: 0 0 28px #ff344299, 0 0 5px #33000080, 0 0 1px #fff;
+      letter-spacing: 3.1px;
+      margin-bottom: 0.13em;
+      font-family: 'Megrim', cursive;
+      font-weight: bold;
+      line-height: 1.05;
+      animation: red-flicker 2.2s infinite alternate;
+    }
+    .flashy-github-link .subtitle {
+      display: block;
+      color: #ede8ed;
+      font-size: 1.15rem;
+      letter-spacing: 2px;
+      font-family: 'Spectral', serif;
+      margin-top: 0.3em;
+      opacity: 0.84;
+      text-shadow: 0 0 22px #fff6, 0 0 2px #ffdde0, 0 0 1px #000;
+      font-weight: 300;
+      line-height: 1.14;
+    }
+    
+    @keyframes red-flicker {
+      0%   { color: #ff324b; text-shadow: 0 0 23px #ff324b88, 0 0 5px #90001470; }
+      7%   { color: #ff6c85; text-shadow: 0 0 33px #ff96ac66, 0 0 5px #ea346270; }
+      12%  { color: #ff324b; text-shadow: 0 0 18px #ff324b88, 0 0 5px #90001470; }
+      27%  { color: #b6002a; text-shadow: 0 0 10px #cc233980; }
+      38%  { color: #ff324b; text-shadow: 0 0 38px #ff324b99, 0 0 8px #ff344299; }
+      100% { color: #ff324b; text-shadow: 0 0 23px #ff324b88, 0 0 5px #90001470; }
+    }
+    .multiplayer-video {
+      max-width: 720px;
+      margin: 0 auto 2.8rem auto;
+      border-radius: 22px;
+      overflow: hidden;
+      border: 2.5px solid #430515;
+      box-shadow:
+        0 0 40px 0 #2e0007c0,
+        0 0 80px 0 #ff334420,
+        0 0 4px #220008;
+      background: #11060c;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: box-shadow 0.25s;
+    }
+    .multiplayer-video:hover, .multiplayer-video:focus-within {
+      box-shadow:
+        0 0 80px 0 #ff334499,
+        0 0 160px 0 #a3142e55,
+        0 0 12px #ffb0c0;
+      border-color: #810d21;
+    }
+    .multiplayer-video iframe {
+      width: 100%;
+      aspect-ratio: 16/9;
+      min-height: 340px;
+      border: none;
+      background: #11060c;
+      display: block;
+    }
+    .limited-offer-lynchian {
+      font-family: 'Megrim', 'Spectral', serif;
+      max-width: 680px;
+      margin: -1.1rem auto 2.7rem auto;
+      text-align: center;
+      font-size: 1.23rem;
+      letter-spacing: 0.07em;
+      line-height: 1.5;
+      color: #e9e3f1;
+      background: linear-gradient(110deg, rgba(10,15,14,0.91) 75%, rgba(25,16,38,0.53) 100%);
+      border: 2.8px solid #251021;
+      border-radius: 19px;
+      box-shadow:
+        0 0 44px 0 #110b15cc,
+        0 0 26px 0 #30ffb140,
+        0 0 16px #300414aa,
+        0 0 3px #06ffbf55,
+        0 0 1px #fff6;
+      padding: 1.5rem 2.2rem 1.38rem 2.2rem;
+      position: relative;
+      z-index: 2;
+      text-shadow:
+        0 0 22px #7cffd2cc,
+        0 0 3px #fff9,
+        0 0 1px #000,
+        0 0 11px #18d48890;
+      opacity: 0.97;
+      transition: box-shadow 0.21s;
+      overflow: hidden;
+    }
+    .limited-offer-lynchian::before {
+      content: "⸸";
+      color: #ff324b;
+      font-size: 2.5em;
+      opacity: 0.23;
+      position: absolute;
+      left: 1.15rem;
+      top: 0.47rem;
+      pointer-events: none;
+      filter: blur(0.7px);
+      text-shadow: 0 0 14px #ff33777a, 0 0 7px #1effbb99;
+    }
+    .limited-offer-lynchian::after {
+      content: "⸸";
+      color: #44ffb7;
+      font-size: 2.4em;
+      opacity: 0.21;
+      position: absolute;
+      right: 1.10rem;
+      bottom: 0.60rem;
+      pointer-events: none;
+      filter: blur(0.6px);
+      text-shadow: 0 0 16px #7cffd2ee, 0 0 8px #ff334480;
+    }
+    .limited-offer-lynchian .lynch-main {
+      display: block;
+      margin-bottom: 0.85em;
+      font-size: 1.13em;
+      color: #e8e8fa;
+      letter-spacing: 0.08em;
+      text-shadow: 0 0 18px #18d48844, 0 0 5px #110b1566;
+    }
+    .limited-offer-lynchian .lynch-date {
+      display: block;
+      font-family: 'Megrim', cursive;
+      color: #fc395a;
+      font-size: 1.19em;
+      font-weight: bold;
+      margin: 0.6em 0 0.24em 0;
+      letter-spacing: 0.13em;
+      text-shadow: 0 0 25px #ff324b99, 0 0 7px #ffbbc0, 0 0 2px #fff;
+    }
+    .limited-offer-lynchian .lynch-ip {
+      display: block;
+      font-family: 'Megrim', 'Spectral', serif;
+      color: #1cffad;
+      font-size: 1.1em;
+      letter-spacing: 0.11em;
+      font-weight: bold;
+      background: rgba(7, 24, 17, 0.22);
+      margin: 0.2em 0 0.15em 0;
+      padding: 0.14em 0.16em 0.13em 0.16em;
+      border-radius: 6px;
+      text-shadow: 0 0 15px #22ffcc90, 0 0 2px #fff8;
+      box-shadow: 0 0 8px #1cffad25, 0 0 1.5px #12a36f70;
+      filter: brightness(1.15);
+    }
+    .ps2-ritual {
+      font-family: 'Megrim', cursive;
+      color: #9afce3;
+      font-size: 1.15rem;
+      text-align: center;
+      letter-spacing: 0.09em;
+      margin: 2.2rem auto 1.2rem auto;
+      background: none;
+      text-shadow:
+        0 0 12px #1cfcb255,
+        0 0 2px #9afce380,
+        0 0 18px #002f2550;
+      padding: 0.2em 0 0.2em 0;
+      max-width: 550px;
+    }
+    
+    @keyframes ps2-glow-flicker {
+      0% { box-shadow: 0 0 18px #12ffd650, 0 0 6px #001e0b66; }
+      50% { box-shadow: 0 0 32px #35ffe2c2, 0 0 10px #29ffb8cc; }
+      100% { box-shadow: 0 0 16px #12ffd680, 0 0 6px #001e0b99; }
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="media.html">Media</a>
+      <a href="about.html">About</a>
+      <a href="https://github.com/jeremydecola/Mystic-Nights-Translation" target="_blank">Translation</a>
+      <a href="multiplayer.html">Multiplayer</a>
+      <a href="mailto:jeremydecola@gmail.com?subject=Mystic%20Nights%20Archive%20Inquiry">Contact Me</a>
+    </nav>
+  </header>
+  <div class="container">
+    <h1>Multiplayer</h1>
+    <div style="text-align:center; margin-bottom:2.2rem;">
+      <a href="https://github.com/jeremydecola/Mystic-Nights-Online" class="flashy-github-link" target="_blank" rel="noopener">
+        <span class="play-online">PLAY ONLINE</span>
+        <span class="subtitle">Download the Multiplayer Private Server on GitHub</span>
+      </a>
+    </div>
+
+    <div class="limited-offer-lynchian">
+      <span class="lynch-main">
+        For a limited time, I will be hosting my Private Server online at my own expense,<br>
+        all so that you have a chance to play with minimal setup required.
+      </span>
+      <span class="lynch-date">
+        <b>September 1st 2025</b>
+        <br>
+        <span style="font-family:'Spectral',serif;font-size:0.89em;font-weight:400;color:#ffc8d8;letter-spacing:0.05em;">
+          The Server will be decommissioned
+        </span>
+      </span>
+      <span class="lynch-ip">
+        SERVER PUBLIC IP: 207.148.21.93
+      </span>
+    </div>
+
+    <div class="multiplayer-video">
+      <iframe 
+        src="https://www.youtube.com/embed/YOUR_VIDEO_ID_HERE"
+        title="Mystic Nights Multiplayer Demo"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <h2>How to Set Up Network Configuration for Multiplayer</h2>
+     <div class="ps2-ritual">
+       Begin the ritual.<br>
+       <span style="font-size:1.06em;color:#fffcee;text-shadow:0 0 6px #15ffd8,0 0 2px #fff,0 0 9px #00485d;">
+         Power on your <b style="color:#4bffd8;text-shadow:0 0 8px #7affff;">PlayStation 2</b>
+         <span style="color:#5aeddc;">or</span> <b style="color:#49ffe6;">PCSX2</b>.<br>
+         Memory Card must be inserted.<br>
+       </span>
+       Follow each step below and match your settings to the screenshots:
+     </div>
+    <div class="network-config-gallery">
+      <div class="step-block">
+        <img src="assets/images/network_setup/step01.png" alt="Step 1" />
+        <div class="caption"><strong>Step 1:</strong> Select 'NETWORK GAME' from the main menu.</div>
+      </div>
+      <div class="step-block">
+        <img src="assets/images/network_setup/step02.png" alt="Step 2" />
+        <div class="caption"><strong>Step 2:</strong> Press Circle button (OK) to acknowledge message.</div>
+      </div>
+      <div class="step-block">
+        <img src="assets/images/network_setup/step03.png" alt="Step 3" />
+        <div class="caption"><strong>Step 3:</strong> Navigate down to select "Manage Network Settings".</div>
+      </div>
+      <div class="step-block">
+        <img src="assets/images/network_setup/step04.png" alt="Step 4" />
+        <div class="caption"><strong>Step 4:</strong> Press Circle button (OK) to enter Network Settings Manager.</div>
+      </div>
+      <div class="step-block">
+        <img src="assets/images/network_setup/step05.png" alt="Step 5" />
+        <div class="caption"><strong>Step 5:</strong> Wait for Network Settings Manager to finish loading...</div>
+      </div>
+      <div class="step-block">
+        <img src="assets/images/network_setup/step06.png" alt="Step 6" />
+        <div class="caption"><strong>Step 6:</strong> Select the first menu option (Create New Configuration).</div>
+      </div>
+      <div class="step-block">
+        <img src="assets/images/network_setup/step07.png" alt="Step 7" />
+        <div class="caption"><strong>Step 7:</strong> Select the Memory Card you wish to save to.</div>
+      </div>
+      <div class="step-block">
+        <img src="assets/images/network_setup/step08.png" alt="Step 8" />
+        <div class="caption"><strong>Step 8:</strong> Select the left option in the pop-up (YES).</div>
+      </div>
+      <div class="step-block">
+        <img src="assets/images/network_setup/step09.png" alt="Step 9" />
+        <div class="caption"><strong>Step 9:</strong> Press Circle button (OK) to acknowledge message.</div>
+      </div>
+      <div class="step-block">
+        <img src="assets/images/network_setup/step10.png" alt="Step 10" />
+        <div class="caption"><strong>Step 10:</strong> Press "RIGHT" directional button to go to the next screen.</div>
+      </div>
+      <div class="step-block">
+        <img src="assets/images/network_setup/step11.png" alt="Step 11" />
+        <div class="caption"><strong>Step 11:</strong> Press Circle button to select "SCE/Ehernet (Network Adapter) from the list. It will turn blue. Press "RIGHT" directional button to go to the next screen. </div>
+      </div>
+      <div class="step-block">
+        <img src="assets/images/network_setup/step12.png" alt="Step 12" />
+        <div class="caption"><strong>Step 12:</strong> Press Circle button (OK) to acknowledge message.</div>
+      </div>
+      <div class="step-block">
+        <img src="assets/images/network_setup/step13.png" alt="Step 13" />
+        <div class="caption"><strong>Step 13:</strong> Chose the bottom option with Circle. Press "RIGHT" directional button to go to the next screen. </div>
+      </div>
+      <div class="step-block">
+        <img src="assets/images/network_setup/step14.png" alt="Step 14" />
+        <div class="caption"><strong>Step 14:</strong> Chose the top option with Circle if you would like to use DHCP [chose this if you don't know what you are doing] or the bottom option if you want to set a Static IP. Press "RIGHT" directional button to go to the next screen.</div>
+      </div>
+      <div class="step-block">
+        <img src="assets/images/network_setup/step15.png" alt="Step 15" />
+        <div class="caption"><strong>Step 15:</strong> Chose the top option with Circle if you would like to set up DNS automatically [chose this if you don't know what you are doing] or the bottom option if you want to set a DNS manually. Press "RIGHT" directional button to go to the next screen.</div>
+      </div>
+      <div class="step-block">
+        <img src="assets/images/network_setup/step16.png" alt="Step 16" />
+        <div class="caption"><strong>Step 16:</strong> Press Circle if you would like to change the name of your configuration. The default name is "Setting 1". Press "RIGHT" directional button to go to the next screen.  </div>
+      </div>
+      <div class="step-block">
+        <img src="assets/images/network_setup/step17.png" alt="Step 17" />
+        <div class="caption"><strong>Step 17:</strong> Press Circle button (OK).</div>
+      </div>
+      <div class="step-block">
+        <img src="assets/images/network_setup/step18.png" alt="Step 18" />
+        <div class="caption"><strong>Step 18:</strong> A pop-up will appear. </div>
+      </div>
+      <div class="step-block">
+        <img src="assets/images/network_setup/step19.png" alt="Step 19" />
+        <div class="caption"><strong>Step 19:</strong> Press Circle button (OK).</div>
+      </div>
+      <div class="step-block">
+        <img src="assets/images/network_setup/step20.png" alt="Step 20" />
+        <div class="caption"><strong>Step 20:</strong> Select the left option in the pop-up (YES). </div>
+      </div>
+      <div class="step-block">
+        <img src="assets/images/network_setup/step21.png" alt="Step 21" />
+        <div class="caption"><strong>Step 21:</strong> Press Circle button.</div>
+      </div>
+      <div class="step-block">
+        <img src="assets/images/network_setup/step22.png" alt="Step 22" />
+        <div class="caption"><strong>Step 22:</strong> Press Circle button (CONFIRM). </div>
+      </div>
+      <div class="step-block">
+        <img src="assets/images/network_setup/step23.png" alt="Step 23" />
+        <div class="caption"><strong>Step 23:</strong> Press Circle button (OK).</div>
+      </div>
+      <div class="step-block">
+        <img src="assets/images/network_setup/step24.png" alt="Step 24" />
+        <div class="caption"><strong>Step 24:</strong> Select the left option in the pop-up (YES). </div>
+      </div>
+      <div class="step-block">
+        <img src="assets/images/network_setup/step25.png" alt="Step 25" />
+        <div class="caption"><strong>Step 25:</strong> Press X button to Quit out of Network Settings Manager.</div>
+      </div>
+      <div class="step-block">
+        <img src="assets/images/network_setup/step26.png" alt="Step 26" />
+        <div class="caption"><strong>Step 26:</strong> Select the left option in the pop-up. </div>
+      </div>
+      <div class="step-block">
+        <img src="assets/images/network_setup/step27.png" alt="Step 27" />
+        <div class="caption"><strong>Step 27:</strong> You're ready to log in now! </div>
+      </div>
+    </div>
+    <h3 style="margin-top:2rem;">Need more help?</h3>
+    <p>Full documentation, server code, and troubleshooting tips are available on the <a href="https://github.com/jeremydecola/Mystic-Nights-Online" target="_blank">project GitHub page</a>.</p>
+    <p style="font-size: 0.8rem; margin-top: 3rem; text-align: center;">
+      <em>This is a non-commercial fan archive created for historical preservation under Canadian fair dealing law.<br>
+      All media is credited to the original developers (N-Log Soft) and Sony Computer Entertainment Korea Inc. (SCEK).</em>
+    </p>
+  </div>
+  </div>
+</body>
+</html>
