@@ -92,12 +92,15 @@
     }
 
     h1 {
-      font-family: 'Megrim', cursive;
-      color: #cc0000;
+      font-family: 'UnifrakturCook', 'Megrim', cursive;
+      color: #ff2222;
+      font-size: 3.7rem;
+      text-shadow: 0 0 30px #c10000c7, 0 0 12px #fff4;
       text-align: center;
-      font-size: 4rem;
-      margin-top: 2rem;
-      text-shadow: 0 0 10px #550000;
+      margin-bottom: 0.18rem;
+      margin-top: 0;
+      letter-spacing: 2.5px;
+      filter: brightness(1.09);
     }
 
     h2 {
@@ -490,11 +493,140 @@
       padding: 0.2em 0 0.2em 0;
       max-width: 550px;
     }
-    
-    @keyframes ps2-glow-flicker {
-      0% { box-shadow: 0 0 18px #12ffd650, 0 0 6px #001e0b66; }
-      50% { box-shadow: 0 0 32px #35ffe2c2, 0 0 10px #29ffb8cc; }
-      100% { box-shadow: 0 0 16px #12ffd680, 0 0 6px #001e0b99; }
+    .small-note {
+      font-size: 0.87em;
+      color: #b9b9b9;
+      font-weight: 400;
+      margin: 0.2em 0 0.3em 0;
+      display: block;
+    }
+    .triangle-ritual-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0.15rem 0 1.1rem 0;
+      user-select: none;
+      position: relative;
+      z-index: 5;
+    }
+    .ritual-btn-link {
+      position: relative;
+      display: inline-block;
+      width: 420px;
+      height: 320px; /* try lower for even tighter! */
+      margin: 0 auto;
+      cursor: pointer;
+      border-radius: 32px;
+      background: none;
+      box-shadow: none;
+      outline: none;
+      transition: transform 0.14s cubic-bezier(.42,1.13,.63,1.08);
+    }
+    .ritual-btn-link:hover,
+    .ritual-btn-link:focus {
+      transform: scale(1.04);
+    }
+    .triangle-outline {
+      position: relative;
+      left: 0;
+      top: 0;
+      transform: none;
+      display: block;
+      margin: 0 auto;
+    }
+    .ritual-circle {
+      transition: stroke 0.33s;
+      transform-origin: 300px 315px;
+      animation: ritual-spin 6.3s linear infinite;
+    }
+    .ritual-btn-link:hover .ritual-circle {
+      stroke: #c01b2b;
+      filter: drop-shadow(0 0 18px #660008ee);
+    }
+    .ritual-circle-dash {
+      transition: stroke 0.28s;
+      transform-origin: 300px 315px;
+      animation: ritual-spin-rev 5.8s linear infinite;
+    }
+    .ritual-btn-link:hover .ritual-circle-dash {
+      stroke: #a93a46;
+    }
+    .triangle-anim {
+      stroke-dasharray: 1380;
+      stroke-dashoffset: 0;
+      /* Perpetual draw and fade loop */
+      animation: triangle-drawloop 3.6s cubic-bezier(.53,.13,.32,.89) infinite,
+                 triangle-glow-ritual 2.2s infinite alternate cubic-bezier(0.47,0,0.54,1.01);
+      filter: drop-shadow(0 0 16px #a0162caa);
+      opacity: 0.97;
+    }
+    .ritual-btn-link:hover .triangle-anim {
+      filter: drop-shadow(0 0 34px #b01727aa);
+      stroke: #ff2233;
+    }
+    @keyframes triangle-drawloop {
+      0%   { stroke-dashoffset: 1380; opacity: 0.5; }
+      22%  { stroke-dashoffset: 0;    opacity: 1; }
+      80%  { stroke-dashoffset: 0;    opacity: 0.96;}
+      100% { stroke-dashoffset: 1380; opacity: 0.3;}
+    }
+    @keyframes triangle-glow-ritual {
+      0%, 100% { filter: drop-shadow(0 0 14px #8e1626aa); }
+      48%      { filter: drop-shadow(0 0 27px #d22036cc); }
+    }
+    @keyframes ritual-spin {
+      0% { transform: rotate(0deg);}
+      100% { transform: rotate(360deg);}
+    }
+    @keyframes ritual-spin-rev {
+      0% { transform: rotate(0deg);}
+      100% { transform: rotate(-360deg);}
+    }
+    /* Adjust text to triangle centroid visually */
+    .ritual-text {
+      position: absolute;
+      left: 50%;
+      top: 61.5%;
+      transform: translate(-50%, -50%);
+      font-family: 'Megrim', cursive;
+      font-size: 3.25rem;
+      font-weight: bold;
+      letter-spacing: 0.11em;
+      color: #650010;
+      text-shadow:
+        0 0 14px #a22239cc,
+        0 0 10px #39000788,
+        0 0 4px #0e0006;
+      pointer-events: none;
+      z-index: 2;
+      filter: blur(0.08px);
+      transition: color 0.21s, text-shadow 0.18s;
+      animation: ritual-breath-dark 2.8s cubic-bezier(.42,.0,.58,1) infinite;
+      background: none;
+      border: none;
+      box-shadow: none;
+      padding: 0;
+      border-radius: 0;
+    }
+    .ritual-btn-link:hover .ritual-text,
+    .ritual-btn-link:focus .ritual-text {
+      color: #be2245;
+      text-shadow:
+        0 0 33px #dd436a,
+        0 0 12px #70001899,
+        0 0 4px #510008aa;
+    }
+    @keyframes ritual-breath-dark {
+      0%, 100% {
+        color: #650010;
+        text-shadow: 0 0 14px #a22239cc, 0 0 10px #39000788, 0 0 4px #0e0006;
+        opacity: 1;
+      }
+      54% {
+        color: #b01b33;
+        text-shadow: 0 0 27px #65001088, 0 0 13px #d22036cc, 0 0 6px #3e0013;
+        opacity: 0.91;
+      }
     }
 
   </style>
@@ -512,10 +644,56 @@
   </header>
   <div class="container">
     <h1>Multiplayer</h1>
-    <div style="text-align:center; margin-bottom:2.2rem;">
-      <a href="https://github.com/jeremydecola/Mystic-Nights-Online" class="flashy-github-link" target="_blank" rel="noopener">
-        <span class="play-online">PLAY ONLINE</span>
-        <span class="subtitle">Download the Multiplayer Private Server on GitHub</span>
+    <div class="triangle-ritual-btn">
+      <a href="https://youtube.com/watch?v=HB7vUltXfJM" target="_blank" rel="noopener" class="ritual-btn-link">
+        <svg viewBox="0 0 600 600" class="triangle-outline" width="420" height="320" style="display:block;">
+          <!-- Background Glow Circle -->
+          <ellipse class="ritual-circle"
+            cx="300" cy="300" rx="218" ry="218"
+            fill="none" stroke="#3b1c23" stroke-width="15" opacity="0.72"/>
+          <!-- Dashed Circle -->
+          <ellipse class="ritual-circle-dash"
+            cx="300" cy="300" rx="206" ry="206"
+            fill="none" stroke="#af232f" stroke-width="2.6"
+            stroke-dasharray="15,14" opacity="0.40"/>
+          <!-- Centered Equilateral Triangle -->
+          <polygon
+            id="ritual-triangle"
+            points="300,100 510,500 90,500"
+            fill="rgba(50,10,20,0.09)"
+            stroke="#a0162c"
+            stroke-width="13"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="triangle-anim"
+          />
+          <text
+            x="312"
+            y="325"
+            text-anchor="middle"
+            dominant-baseline="middle"
+            font-family="'Megrim', cursive"
+            font-size="68"
+            font-weight="bold"
+            letter-spacing="8"
+            fill="#ff2244"
+            filter="url(#text-glow)"
+            style="pointer-events:none; text-shadow:0 0 18px #ff224488;"
+          >
+            PLAY
+            <tspan x="300" dy="68">NOW</tspan>
+          </text>
+          <!-- Optional SVG Filter for Glow -->
+          <defs>
+            <filter id="text-glow" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur stdDeviation="5" result="glow"/>
+              <feMerge>
+                <feMergeNode in="glow"/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
+            </filter>
+          </defs>
+        </svg>
       </a>
     </div>
 
@@ -534,6 +712,22 @@
       <span class="lynch-ip">
         SERVER PUBLIC IP: 207.148.21.93
       </span>
+      <span class="lynch-main">
+        <br><small style="font-size:0.60em; color:#ffc8d8; font-style:italic;">
+          Hosting a server is not cheap. If you know of any platforms that were used for similar projects and that would be willing to host this and give it a permanent home, please contact me!
+        </small>
+      </span>
+
+    </div>
+    
+    <div style="text-align:center; margin: 1.3rem 0 2.1rem 0;">
+    <a href="https://github.com/jeremydecola/Mystic-Nights-Online"
+       class="flashy-github-link"
+       target="_blank" rel="noopener"
+       style="min-width:240px; max-width:410px; margin:0;">
+      <span class="play-online">Download the Multiplayer Server Source Code</span>
+      <span class="subtitle">Get the full Python source on GitHub</span>
+    </a>
     </div>
 
     <div class="multiplayer-video">
@@ -545,6 +739,7 @@
       </iframe>
     </div>
 
+    <h2>Quick Start Tutorial</h2>
     <div class="multiplayer-video">
       <iframe 
         src="https://youtube.com/embed/HB7vUltXfJM"
