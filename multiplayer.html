@@ -628,6 +628,84 @@
         opacity: 0.91;
       }
     }
+    .ranking-system-section {
+      text-align: center;
+      max-width: 660px;
+      margin: 3rem auto 2.2rem auto;
+    }
+    
+    .ranking-spooky-header {
+      font-family: 'Megrim', cursive;
+      color: #e93a3a;
+      font-size: 1.17em;
+      letter-spacing: 1px;
+      text-shadow: 0 0 8px #c1000090;
+      margin-bottom: 1.1em;
+    }
+    
+    .ranking-points-box {
+      margin: 0 auto 1.7em auto;
+      color: #ffcad4;
+      font-size: 1.09em;
+      font-family: 'Spectral',serif;
+      background: rgba(60,0,0,0.17);
+      border: 1px solid #a40014;
+      border-radius: 10px;
+      padding: 0.95em 1.3em 0.7em 1.3em;
+      box-shadow: 0 0 12px #ff324b28;
+    }
+    
+    .ranking-table {
+      width: 280px;
+      margin: 1.3em auto 2em auto;
+      background: rgba(24,12,21,0.92);
+      border-radius: 12px;
+      box-shadow: 0 0 18px #3a00009e, 0 0 1px #fff2;
+      border-collapse: separate;
+      border-spacing: 0;
+      font-family: 'Spectral', serif;
+      font-size: 1.01em;
+      overflow: hidden;
+    }
+    .ranking-table thead tr {
+      background: rgba(35,0,0,0.97);
+      font-family: 'Megrim',cursive;
+      font-size: 1.15em;
+      color: #f9e5e5;
+      letter-spacing: 1px;
+    }
+    .ranking-table th, .ranking-table td {
+      padding: 0.38em 0.6em;
+      text-align: center;
+      border-bottom: 1px solid #47111740;
+    }
+    .ranking-table th:last-child, .ranking-table td:last-child {
+      border-right: none;
+    }
+    .ranking-table th {
+      border-bottom: 2px solid #c10020;
+    }
+    .ranking-table tbody tr {
+      background: rgba(55, 0, 20, 0.24);
+      transition: background 0.14s;
+    }
+    .ranking-table tbody tr:nth-child(even) {
+      background: rgba(36,0,18,0.29);
+    }
+    .ranking-table tbody tr:hover {
+      background: rgba(200,0,40,0.17);
+    }
+    .ranking-table td:first-child {
+      color:#ffb6b6;
+      font-family:'Megrim',cursive;
+      font-size:1.11em;
+    }
+    .ranking-table td {
+      color: #ffe5ee;
+    }
+    .ranking-table tr:last-child td {
+      border-bottom: none;
+    }
 
   </style>
 </head>
@@ -717,9 +795,7 @@
           Hosting a server is not cheap. If you know of any platforms that were used for similar projects and that would be willing to host this and give it a permanent home, please contact me!
         </small>
       </span>
-
     </div>
-    
     <div style="text-align:center; margin: 1.3rem 0 2.1rem 0;">
     <a href="https://github.com/jeremydecola/Mystic-Nights-Online"
        class="flashy-github-link"
@@ -728,6 +804,55 @@
       <span class="play-online">Download the Multiplayer Server Source Code</span>
       <span class="subtitle">Get the full Python source on GitHub</span>
     </a>
+    </div>
+    <div class="ranking-system-section">
+      <div class="ranking-spooky-header">
+        <h2>Ranking System</h2>
+        <span style="font-size:2.3em;vertical-align:-0.08em;"></span>
+        Claw your way up through the ranks!<br> Each match will earn you points... <br>
+      </div>
+      <div class="ranking-points-box">
+        <b style="color:#fa4654;font-family:'Megrim',cursive;">+5</b> points for a <b>Win</b> &nbsp;&nbsp;
+        <b style="color:#ffd352;">+2</b> for a <b>Loss</b> &nbsp;&nbsp;
+        <b style="color:#717171;">0</b> if you <b>DC or Abandon</b><br>
+        <span style="font-size:0.92em; color:#e0a7a7;">
+          Points can exceed 199, but Rank won't change beyond S.
+        </span>
+      </div>
+      <table class="ranking-table">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Points</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>E</td>
+            <td>1 – 10</td>
+          </tr>
+          <tr>
+            <td>D</td>
+            <td>11 – 30</td>
+          </tr>
+          <tr>
+            <td>C</td>
+            <td>31 – 50</td>
+          </tr>
+          <tr>
+            <td>B</td>
+            <td>51 – 90</td>
+          </tr>
+          <tr>
+            <td>A</td>
+            <td>91 – 140</td>
+          </tr>
+          <tr>
+            <td>S</td>
+            <td>141 – 199</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
     <div class="multiplayer-video">
